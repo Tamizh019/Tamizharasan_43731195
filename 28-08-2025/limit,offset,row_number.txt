@@ -1,0 +1,38 @@
+show databases;
+use org123;
+show tables;
+select * from worker;
+
+## --USING ORDER BY  --
+select * from worker where department = 'HR' order by salary desc;
+select * from worker order by worker_id desc;
+
+## --USING GROUP BY  --
+select department, count(department) from worker group by DEPARTMENT; 
+select sum(salary),department from worker group by DEPARTMENT;
+
+## Count employees not in HR or admin ...
+select count(first_name) as Employee_count ,department from worker
+where department not in ('HR', 'admin') 
+group by DEPARTMENT; 
+
+## To find the highest salary in each dept ...
+select department,max(salary) as highest_salary from worker
+group by department 
+order by max(SALARY);
+
+## --USING OFFSET  --
+SELECT * FROM Worker
+ORDER BY worker_id
+Limit 3 OFFSET 3;  
+select * from worker order by worker_id limit 5 offset 2;
+
+## --USING LIMIT and row_number --
+select * from worker order by worker_id limit 5;
+
+select Worker_id,First_name,Salary,department from worker 
+where Department in ('hr','admin')
+order by WORKER_ID desc
+limit 4;
+
+select * from worker WHERE worker_id > 5;  ##with row id !!!
