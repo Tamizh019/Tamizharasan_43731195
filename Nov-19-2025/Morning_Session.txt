@@ -1,0 +1,64 @@
+							
+							// ------- file name == "firstPro" ------- \\
+							// ------- DONE IN MORNING SESSION ------- \\
+public class firstPro {
+	void BMW (){
+		System.out.println("Top model ");
+	}
+
+	public static void main(String[] args) {
+		//( className  ObjectName(user defined) = new ConstructorName()  )
+		People1 k = new People1();
+		k.bike();
+		
+		firstPro car = new firstPro();
+		car.BMW();
+		
+		Program p = new Program();
+		System.out.println(p.a1);
+		
+		Pro1 pro = new Pro1();
+		pro.addition();
+		
+	}
+	static class People1 {
+		void bike() {
+			System.out.println("Bike of People1 ...");
+		}
+	}
+	static class Program {
+	    int money = 1000;
+	    int a1 = money + 850;
+
+	    int A1() {     
+	        return a1;
+	    }
+	}
+	static class Pro1 {
+		int marks = 100 ;
+		protected void addition() {
+			int result = marks*10 ;
+			System.out.println(result);
+			
+			// nested class (LOCAL CLASS)
+			class InsideClass{
+				void division () {
+					System.out.println("Class inside class output check");
+				}
+			}
+		    InsideClass in = new InsideClass();
+		    in.division(); 
+		}
+		
+		// initialization block
+		{
+			System.out.println("Hello Guys !! checking for 1st output");
+		}
+		
+		// constructor
+		public Pro1() {
+			System.out.println("This is constructor output check !!! ");
+		}
+	}
+}
+	
