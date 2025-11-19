@@ -4,7 +4,7 @@ Welcome to my placement preparation repository! This repo contains my daily work
 
 ## 👨‍💻 About
 
-**Name**: Tamizharasan  
+**Name**: Tamizharasan R
 **Institution**: Sathyabama Institute of Science and Technology (SIST), Chennai  
 **Program**: Computer Science Engineering - Artificial Intelligence  
 **Focus**: Java Full Stack Development, DSA, Problem Solving
