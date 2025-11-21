@@ -1,0 +1,87 @@
+package nov21;
+
+public class Abstraction {
+
+	//Abstraction - " Show only important methods to the user and hide the complex code behind them "
+	// 2 types - a) Abstract class 
+	//           b) Interfaces 
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Game g2 = new FreeFire();
+		g2.pubg();
+		g2.ff();
+		g2.run();
+		
+		Game1 game = new PUBGM();
+		Game2 game2 = new PUBGM();
+		game.start();
+		game.stop();
+		game2.shoot();
+		game2.run();
+
+	}
+
+}
+
+// a) Using abstract Class ;
+
+abstract class Game {
+	abstract void pubg(); 
+	abstract void ff ();
+	abstract void cod ();
+
+    void run() {
+        System.out.println("Player is running ... ");
+    }
+}
+class Pubg extends Game {
+    void pubg() {
+        System.out.println("Best RPG Game");
+    }
+
+	@Override
+	void ff() {
+		
+	}
+	
+	@Override
+	void cod() {
+		
+	}
+}
+class FreeFire extends Pubg {
+	void ff() {
+		System.out.println("It is a child Game");
+	}
+	
+}
+
+// b) Using Interfaces ; ( 100 % ABSTRACTION )
+
+interface Game1{
+	void start();
+	void stop();
+	
+}
+interface Game2{
+	void shoot();
+	void run();
+}
+
+class PUBGM implements Game1,Game2{
+	public void start() {
+		System.out.println("Game has started !Get Ready ");
+	}
+	public void stop() {
+		System.out.println("Game Has been Stopped ! ");
+	}
+	public void shoot() {
+		System.out.println("Shoot Him");
+	}
+	public void run() {
+		System.out.println("Run Away fast!!!");
+	}
+}
+
