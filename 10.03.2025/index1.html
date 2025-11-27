@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello js</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            font-size: x-large;
+            
+        }
+        
+            
+    </style>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+    <script>
+        let data = ""
+        for(let i=0;i<100;i++){
+            data = data + 
+            ` <div id=test>
+                <p>Hello js
+                </div>
+                \n
+            `
+        }
+        console.log(data)
+        document.getElementById("test").innerHTML = data
+    </script>
+</body>
+</html>

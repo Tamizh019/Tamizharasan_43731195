@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .list-container {
+            width: 500px;
+            min-height: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .list-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #task-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #task-input:focus {
+            border-color: #ff6f61;
+        }
+
+        .list-header button {
+            padding: 15px 25px;
+            border: none;
+            background: #ff6f61;
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .list-header button:hover {
+            background: #ff4a3d;
+        }
+
+        .list-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .list-item p {
+            flex: 1;
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .list-item button {
+            background: #ff6f61;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .list-item button:hover {
+            background: #ff4a3d;
+        }
+
+        .list-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #pending-tasks {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .list-foot button {
+            padding: 10px 20px;
+            border: none;
+            background: #ff6f61;
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .list-foot button:hover {
+            background: #ff4a3d;
+        }
+
+        .list-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .list-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .list-body::-webkit-scrollbar-thumb {
+            background: #ff6f61;
+            border-radius: 10px;
+        }
+
+        .list-body::-webkit-scrollbar-thumb:hover {
+            background: #ff4a3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <div class="list-header">
+            <input type="text" id="task-input" placeholder="Enter a new task" />
+            <button onclick="addNewTask()">Add Task</button>
+        </div>
+        <div class="list-body"></div>
+        <div class="list-foot">
+            <p id="pending-tasks">No pending tasks</p>
+            <button onclick="resetTask()">Clear All</button>
+        </div>
+    </div>
+    <script>
+        const data = [];
+        const task_input = document.getElementById('task-input');
+        const list_body = document.getElementsByClassName('list-body')[0];
+
+        function addNewTask() 
+        {
+            let input_data = task_input.value.trim();
+            if (input_data === "") {
+                alert("Please enter a task!");
+                return;
+            }
+            const task = {
+                status: false,
+                message: input_data
+            };
+            data.push(task);
+            task_input.value = ""; 
+            render();
+        }
+
+        function updateCheckbox(i) {
+            data[i].status = !data[i].status;
+            render();
+        }
+
+        function deleteTask(i) {
+            data.splice(i, 1);
+            render();
+        }
+
+        function resetTask() {
+            data.splice(0, data.length);
+            render();
+        }
+
+        function render() 
+        {
+            let htmlData = '';
+            let count = 0;
+            for (let i = data.length - 1; i >= 0; i--) {
+                const task = data[i];
+                htmlData += `
+                    <div class="list-item">
+                        <input type="checkbox" onclick="updateCheckbox(${i})" ${task.status ? 'checked' : ''} />
+                        <p style="text-decoration: ${task.status ? 'line-through' : 'none'};" id="task-para-${i}">${task.message}</p>
+                        <button onclick="deleteTask(${i})">X</button>
+                    </div>`;
+                if (!task.status) {
+                    count++;
+                }
+            }
+            list_body.innerHTML = htmlData;
+            document.getElementById("pending-tasks").innerHTML = `Pending tasks: ${count}`;
+        }
+    </script>
+</body>
+</html>

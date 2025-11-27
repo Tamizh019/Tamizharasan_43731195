@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>FOOD WEBSITE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.696);
+        }
+        .container {
+            background-color: rgba(147, 150, 155, 0.47);
+            width: 100%;
+            height: 70px;
+            border: 1.7px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .brand {
+            height: 50%;
+            display: flex;
+            align-items: center;
+        }
+        .main {
+            height: 50%;
+            padding: 6px 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-size: large;
+        }
+        .main > a {
+            text-decoration: none;
+            padding: 11px;
+            margin: 3px;
+            color: black;
+            font-weight: bolder;
+            font-size: larger;
+        }
+        .signup {
+            height: 50%;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .btn-sign {
+            border-radius: 10px;
+            border: 1.7px solid black;
+            padding: 6px 14px;
+            background-color: rgba(139, 141, 134, 0);
+            font-family: "Montserrat", sans-serif;
+            font-weight: bolder;
+            font-size: large;
+        }
+        .brand > img {
+            height: 150%;
+            object-fit: cover;
+        }
+        .signup > img {
+            height: 90%;
+        }
+        .signup > button, .signup > img {
+            margin: 3px;
+        }
+        .signup > button {
+            margin-left: 25px;
+        }
+        .out {
+            height: 430px;
+            margin-top: 100px;
+            border-radius: 20px;
+            width: 80%;
+            font-size: larger;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .out > img {
+            border-radius: 20px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .sign {
+            background-color: white;
+            border-radius: 8px;
+            border: none;
+            padding: 5px 10px;
+            margin-top: 20px;
+            font-family:Montserrat ;
+            font-weight: bolder;
+            font-size: large;
+        }
+        .in {
+            position: absolute;
+            color: white;
+            text-align: center;
+            width: 59%;
+            margin-top: 120px;
+        }
+        .sign:hover {
+            background-color: rgb(117, 150, 88);
+            transition: ease-out 0.1s;
+        }
+        .btn-sign:hover {
+            background-color: rgba(61, 61, 61, 0.434);
+            transition: ease-in 0.1s;
+        }
+        .cont-2 {
+            width: 80%;
+            margin-top: 35px;
+        }
+        .food {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            text-align: center;
+            align-items: center;
+            overflow-y: hidden;
+        }
+        .foods{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 30px;
+
+        }
+        .dish_cont{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+                
+        }
+        .dishes {
+            border-radius: 5px;
+            border: 1.4px solid black;
+            box-sizing: border-box;
+            width: 400px;
+            height: 590px;
+        }
+        .dishes > img
+        {
+            border-radius: 3px;
+            height: 400px;
+            object-fit: cover;
+        }
+        .words{
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            margin-left: 14px;       
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .main {
+                display: none;
+            }
+            .in > p {
+                display: none;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand">
+            <img src="logo.png">
+        </div>
+        <div class="main">
+            <a href="/">Home</a>
+            <a href="/">Menu</a>
+            <a href="/">Contact us</a>
+        </div>
+        <div class="signup">
+            <img src="Assets/icons8-cart-24.png">
+            <button class="btn-sign">sign up</button>
+        </div>
+    </div>
+    <div class="out">
+        <img src="background.jpg">
+        <div class="in">
+            <h2>Order your favorite food here</h2>
+            <p>Choose from a diverse menu featuring a delectable array of dishes crafted <br>with the finest ingredients and culinary expertise.</p>
+            <button class="sign">View Menu</button>
+        </div>
+    </div>
+    <div class="cont-2">
+        <div class="exp">
+            <h1>Explore Our Menu</h1>
+            <p style="font-size: larger;">Choose from a Diverse menu featuring a deluctable array of dishes. Our mission is to satisy your cravings and elevate your dining experience , one delicious meal at a time.</p>
+        </div>
+        <div class="food"></div>
+    </div>
+    <hr style="border: 1px solid black; width: 80%; margin-top: 60px;">
+    <div class="dish_cont">
+        <div>
+            <h1>Top dishes near you</h1>
+        </div>
+        <div class="foods"></div>
+    </div>
+    <script>
+        const image = ["eat.jpg", "eat 1.jpg", "eat 2.jpg", "eat 3.jpg", "ff.jpg", "eat 6.jpg", "cake.png", "eat 9.jpg"];
+        const name = ["Samosas", "Pizza", "Noodles", "Fish Fry", "French Fries", "Biriyani", "Pantries", "Tanduri"];
+        let data = "";
+        for (let i = 0; i < image.length; i++) {
+            data += `
+                <div class="food-item" id="food-item-${i}" onclick="update(this)">
+                    <img src="${image[i]}" style="width: 215px; height: 195px; border-radius: 50%;">
+                    <p style="font-size: 18px;">${name[i]}</p>
+                </div>
+            `;
+        }
+        document.getElementsByClassName("food")[0].innerHTML = data;
+
+        function updateSamosa() {
+            const samosa = [
+            { 
+                imgsrc: "veg sam1.jpg", 
+                name: 'VEG SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹80' 
+            },
+            { 
+                imgsrc: "pan sam.jpg", 
+                name: 'PANEER SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹100' 
+            },
+            { 
+                imgsrc: "ch sam.jpg", 
+                name: 'CHEESE CORN SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹110' 
+            },
+            { 
+                imgsrc: "cho sam.jpg", 
+                name: 'CHICKEN SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹150' 
+            },
+            { 
+                imgsrc: "chic sam.jpg", 
+                name: 'KEEMA SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹90' 
+            },
+            { 
+                imgsrc: "mus sam.jpg", 
+                name: 'MUSHROOM SAMOSA', 
+                desc: 'Choose from a Diverse menu featuring a deluctable array of dishes.', 
+                price: '₹100' 
+            }
+            ];
+            let dishdata = "";
+            for (let i = 0; i < samosa.length; i++) {
+                dishdata += `
+                    <div class="dishes">
+                        <img src="${samosa[i].imgsrc}">
+                        <div class="words">
+                            <h3>${samosa[i].name}</h3>
+                            <p>${samosa[i].desc}</p>
+                            <p>${samosa[i].price}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            document.getElementsByClassName('foods')[0].innerHTML = dishdata;
+        }
+
+        function update(obj) {
+            if (obj.id === 'food-item-0') {
+                updateSamosa();
+            } else if (obj.id === 'food-item-1') {
+                updatePizza();
+            }
+            console.log(obj.id);
+        }
+    </script>
+</body>
+</html>

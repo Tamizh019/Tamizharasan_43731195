@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .container {
+            width: 450px;
+            height: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin: 0;
+        }
+
+        .in {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .in div {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .in div:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .in img {
+            height: 80px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            padding: 11px;
+            background: #f9f9f9;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        table {
+            margin: 10px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+            font-size: 18px;
+        }
+
+        td img {
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        .down table {
+            width: 100%;
+        }
+        .down td {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: #dc3545;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rock Paper Scissors</h2>
+        <div class="in">
+            <div onclick="play('rock')"><img src="assets/rock.jpg"></div>
+            <div onclick="play('paper')"><img src="assets/paper.jpg"></div>
+            <div onclick="play('scissors')"><img src="assets/scissors.jpg"></div>
+        </div>
+        <p id="result"> - </p>
+        <div class="mid">
+            <table>
+                <tr>
+                    <th>YOU</th>
+                    <th>COMPUTER</th>
+                </tr>
+                <tr>
+                    <td id="player"><img src="assets/rock.jpg" id="player-img"></td>
+                    <td id="cpu"><img src="assets/scissors.jpg" id="cpu-img"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="down">
+            <table>
+                <tr>
+                    <th>WINS</th>
+                    <th>LOSES</th>
+                    <th>TIES</th>
+                </tr>
+                <tr>
+                    <td id="win_c">0</td>
+                    <td id="lose_c">0</td>
+                    <td id="tie_c">0</td>
+                </tr>
+            </table>
+        </div>
+        <button onclick="reset()">RESET</button>
+    </div>
+
+    <script>
+        let wins = 0, loses = 0, ties = 0;
+
+        function play(playerChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+            document.getElementById("player-img").src = `assets/${playerChoice}.jpg`;
+            document.getElementById("cpu-img").src = `assets/${computerChoice}.jpg`;
+
+            let result = "";
+
+            if (playerChoice === computerChoice) {
+                result = "Game is Tie!";
+                ties++;
+            } else if (
+                (playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "paper" && computerChoice === "rock") ||
+                (playerChoice === "scissors" && computerChoice === "paper")
+            ) {
+                result = "You Win!";
+                wins++;
+            } else {
+                result = "You lose";
+                loses++;
+            }
+            document.getElementById("result").innerText = result;
+            document.getElementById("win_c").innerText = wins;
+            document.getElementById("lose_c").innerText = loses;
+            document.getElementById("tie_c").innerText = ties;
+        }
+
+        function reset() {
+            wins = 0, loses = 0, ties = 0;
+            document.getElementById("result").innerText = " - ";
+            document.getElementById("win_c").innerText = wins;
+            document.getElementById("lose_c").innerText = loses;
+            document.getElementById("tie_c").innerText = ties;
+            document.getElementById("player-img").src = "assets/rock.jpg";
+            document.getElementById("cpu-img").src = "assets/rock.jpg";
+        }
+    </script>
+</body>
+</html>

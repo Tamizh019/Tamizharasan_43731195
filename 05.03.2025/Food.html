@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 0;
+  padding: 0;
+  width: 70vw;
+  height: 400px;
+  margin: auto;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: px solid black;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  height: 180px;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  height: 216px;
+}
+
+.item3 {
+  grid-column: 1;
+  grid-row: 2;
+  height: 215px;
+}
+
+.item4 {
+  grid-column: 2;
+  grid-row: 2;
+  height: 215px;
+}
+
+.item5 {
+  grid-column: 3;
+  grid-row: 2;
+  height: 180px;
+  align-self: self-end;
+}
+
+.item6 {
+  grid-column: 4;
+  grid-row: 2;
+  height: 216px;
+}
+
+.item7 {
+  grid-column: 4;
+  grid-row: 1;
+  height: 180px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+</style>
+</head>
+<body>
+
+<h1 style=" text-align: center;">FOOD LAYOUT</h1>
+
+<div class="grid-container">
+  <div class="grid-item item1"><img src="1.jpg" alt="Image 1"></div>
+  <div class="grid-item item2"><img src="2.jpg" alt="Image 2"></div>
+  <div class="grid-item item3"><img src="3.png" alt="Image 3"></div>  
+  <div class="grid-item item4"><img src="4.png" alt="Image 4"></div>
+  <div class="grid-item item5"><img src="5.jpg" alt="Image 5"></div>
+  <div class="grid-item item6"><img src="6.jpg" alt="Image 6"></div>
+  <div class="grid-item item7"><img src="7.jpg" alt="Image 7"></div>
+</div>
+
+</body>
+</html>
