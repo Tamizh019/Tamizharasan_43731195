@@ -1,0 +1,90 @@
+package nov27;
+
+import java.util.ArrayList;
+
+public class EgArrayList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> al=new ArrayList<String>();  
+        System.out.println("Initial Elements in AL1: "+al); 
+        
+        //Adding elements to list  
+        al.add("Element 1");  
+        al.add("Element 2");  
+        al.add("Element 3");  
+        System.out.println("After Adding : "+al);
+        
+        //Removing elements from list    ( to remove all elements --> al.clear();
+        al.remove("Element 2"); // or al.remove(1); 
+        System.out.println("After Removing an element : "+al);
+        
+       
+        //Adding at specific position  
+        al.add(1, "Tamizh");   
+        System.out.println("After Adding in specific Position "+al);  
+        
+        System.out.println("---------------");
+        
+        ArrayList<String> al2=new ArrayList<String>();
+        al2.add("CSE");  
+        al2.add("AI");
+        System.out.println("Initial Elements in AL2: "+al2); 
+        
+        //Adding second list elements to the first list  
+        al.addAll(al2);  
+        System.out.println("After adding 2nd list to 1st list : "+al);  
+        
+        System.out.println("---------------");
+        
+        ArrayList<String> al3=new ArrayList<String>();  
+        al3.add("PUBG");  
+        al3.add("COC");  
+        System.out.println("Initial Elements in AL3: "+al3); 
+        
+        //Adding second list elements to the first list at specific position  
+        al.addAll(1, al3);  
+        System.out.println("After adding 3rd list to 1st list at specific position : "+al);  
+        
+        System.out.println("---------------");
+        
+        //retainALL  - It removes everything from the current list except the elements that match the given collection.
+        
+        ArrayList <String> al4 = new ArrayList<String>();
+        al4.add("A");  
+        al4.add("B");  
+        al4.add("C"); 
+        
+        System.out.println("Elements in AL4: "+al4); 
+                
+        ArrayList <String> al5=new ArrayList<String>();  
+        al5.add("D");  
+        al5.add("E");
+        al5.add("F");
+        System.out.println("Elements in AL5: "+al5); 
+        
+        al4.addAll(al5);
+        System.out.println("");
+        System.out.println("Elements in AL4 after adding AL5: "+ al4);
+        al4.retainAll(al5);
+        System.out.println("After retaining elements of al5 from al4 :"+ al4); 
+        
+        ArrayList<String> al7=new ArrayList<String>();  
+        al7.add("Ravi");  
+        al7.add("Vijay");  
+        al7.add("Ajay");  
+        ArrayList<String> al8=new ArrayList<String>();  
+        al8.add("Ravi");  
+        al8.add("Hanumat");  
+
+        al7.retainAll(al8);  
+        System.out.println(al7);
+
+        //Empty  - check whether the list is empty or not !!!
+         
+        System.out.println("Is ArrayList Empty: "+al4.isEmpty()); 
+        System.out.println("Is ArrayList Empty: "+al5.isEmpty()); 
+       
+	}
+
+}

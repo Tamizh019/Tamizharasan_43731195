@@ -1,0 +1,55 @@
+package nov27;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+public class SetJava {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// Set 3 types --> 1) HashSet 
+		// 				   2) LinkedHashSet
+		//				   3) TreeSet
+		
+		// 1) HashSet --> Stores only unique values , does not follow order 
+		
+		HashSet<Integer> set1=new HashSet<Integer>();   
+		set1.add(1);  
+		set1.add(2);
+		set1.add(3);  
+		set1.add(4);
+		set1.add(3); // duplicate
+		set1.add(4); // duplicate
+		
+		System.out.println(set1);
+		
+		// 2) LinkedHashSet --> Stores only unique values , Removes Duplicates !!! Follows insertion order
+		
+		LinkedHashSet<String> set2 =new LinkedHashSet<String>();  
+		set2.add("Tamizh");  
+		set2.add("Amrith");  
+		set2.add("Sanjay");  
+		set2.add("Harjith");  
+		set2.add("Sanjay");  // duplicate
+		set2.add("Harjith"); // duplicate 
+		
+		System.out.println(set2);
+		
+		// 3) TreeSet --> Stores only unique values , but it follows "" Ascending order "" , so it is FASTER !!!
+		
+		TreeSet<String> set3 = new TreeSet<String>();
+		set3.add("c");
+		set3.add("f");
+		set3.add("a");
+		set3.add("b");
+		set3.add("e");
+		set3.add("d");
+		
+		System.out.println(set3); // prints in ascending order
+		
+
+	}
+
+}
