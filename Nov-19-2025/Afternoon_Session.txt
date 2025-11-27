@@ -1,0 +1,50 @@
+
+						// ------- file name == "secondPro" ------- \\					
+						// ------- DONE IN AFTERNOON SESSION ------- \\
+public class secondPro {
+
+	public static void main(String[] args) {
+		Grandfather gf = new Grandfather();
+		System.out.println("GrandFather has : ");
+		gf.oldCar();
+		
+		Father f = new Father();
+		System.out.println("Father has : ");
+		f.oldCar();
+		f.car();
+		
+		son1 s = new son1();
+		System.out.println("First Son has : ");
+		s.oldCar();
+		s.car();
+		s.latestCar();
+	
+		son2 se = new son2();
+		System.out.println("Second Son has : ");
+		se.oldCar();
+		se.car();
+		se.newCar();
+		
+	}
+
+	static class Grandfather {
+		void oldCar () {
+			System.out.println("1) Roles Royce");
+		}
+	}
+	static class Father extends Grandfather {
+		void car() {
+			System.out.println("2) BMW");
+		}
+	}
+	static class son1 extends Father{
+		void latestCar() {
+			System.out.println("3) Ferrari");
+		}
+	}
+	static class son2 extends Father {
+		void newCar() {
+			System.out.println("4) Pagani ");
+		}
+	}
+}

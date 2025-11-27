@@ -1,0 +1,66 @@
+package nov25;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+
+public class ArraysNov {
+
+	public static void main(String[] args) {
+		int arr[] = { 1, 2, 3, 4, 5 };
+		String s = Arrays.toString(arr);
+		System.out.println(s);
+
+		// ArrayList
+		String[] stringArray = { "T", "A", "M", "I", "Z", "H" };
+		ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
+		System.out.println(arrayList);
+
+		// Checking ArrayList
+		String[] arr1 = { "TAMIZH", "SANJAY", "KUBE", "KALEES", "SURESH" };
+		boolean check = Arrays.asList(arr1).contains("TAMIZH");
+		System.out.println(check);
+
+		// Concatenate Two ARR
+		int[] a1 = { 1, 2, 3 };
+		int[] a2 = { 4, 5, 6 };
+		int a[] = ArrayUtils.addAll(a1, a2);
+
+		String both = Arrays.toString(a);
+		System.out.println(both);
+
+		// Join elements into One string
+		String join = StringUtils.join(new String[] { "T", "A", "M", "I", "Z", }, ", ");
+		System.out.println(join);
+
+		// ArrayList --> Array
+		String[] stringArray1 = { "a", "b", "c", "d", "e" };
+		ArrayList<String> arrayList1 = new ArrayList<String>(Arrays.asList(stringArray1));
+		String[] stringArr = new String[arrayList.size()];
+		arrayList1.toArray(stringArr);
+		for (String str : stringArr)
+			System.out.println(str);
+
+		// Array --> Set
+		String[] s1 = { "a", "b", "c", "d", "e", "a" };
+		Set<String> set123 = new HashSet<String>(Arrays.asList(s1));
+		System.out.println(set123);
+
+		// Array Reversal
+		int[] rev = { 1, 2, 3, 4, 5 };
+		ArrayUtils.reverse(rev);
+		System.out.println(Arrays.toString(rev));
+
+		// Remove element
+		int[] Arr4 = { 1, 2, 3, 4, 5 };
+		int[] removed = ArrayUtils.removeElement(Arr4, 3);
+		System.out.println("Original:" + Arrays.toString(Arr4));
+		System.out.println("After removed: " + Arrays.toString(removed));
+	}
+
+}

@@ -1,0 +1,26 @@
+// Constructors
+
+package nov21;
+
+public class Constructors {
+
+    public static void main(String[] args) {
+        Calculator a = new Calculator();
+        Calculator b = new Calculator(78);
+        Calculator c = new Calculator(5 , 3);
+    }
+}
+
+class Calculator {
+	Calculator(){
+		System.out.println("default");
+	}
+	Calculator(int x){
+		System.out.println("Example = " + x);
+	}
+	Calculator (int x , int y){
+		System.out.println("A + B == " + (x + y));
+	}
+
+
+}
