@@ -17,7 +17,7 @@ Welcome to my placement preparation repository! This repo contains my daily work
 
 ### 🔄 Currently Learning
 - **Core Java**: OOP Concepts, Classes & Objects, Inheritance, Polymorphism, Exception Handling, Collections Framework, Multithreading, File I/O
-- - **Advanced Java**: JDBC, Servlets, JSP
+- **Advanced Java**: JDBC, Servlets, JSP
 - **Spring Boot**: Dependency Injection, REST APIs, Spring MVC, Spring Data JPA (Self-learning)
 - **React**: Components, State Management, Hooks, React Router, Axios (Self-learning)
 - **PostgreSQL**: Advanced Database Management (Self-learning)
