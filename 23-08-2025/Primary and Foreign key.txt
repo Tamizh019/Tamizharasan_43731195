@@ -1,0 +1,78 @@
+show databases;
+use placement;
+
+show tables;
+
+create table Aug23(
+sname varchar(20) not null,
+regno int,
+course varchar(20) not null,
+gender varchar(5),
+state varchar(10)
+);
+desc aug23;
+
+  ## --FOR UNIQUE,NULL(modify)  --
+alter table aug23 add unique(regno) ;
+alter table aug23 modify sname varchar(20) null;
+alter table aug23 modify course varchar(10) not null;
+
+ ## --TO CHECK UNIQUE  --
+insert into aug23 values ('tamizh' , 195 , 'cse', 'male' , 'tamilnadu'); 
+select * from aug23;
+insert into aug23 values ('sanjay' , 195 , 'cse', 'male' , 'tamilnadu');  #not works
+insert into aug23 values ('sanjay' , 196 , 'cse', 'male' , 'tamilnadu');  #works
+select * from aug23;
+
+ ## --TO DROP UNIQUE  --
+alter table aug23 drop index regno;
+desc aug23;
+
+ ## --TO ADD PRIMARY KEY  --
+alter table aug23 add primary key (regno);
+insert into aug23 values ('harjith' , 197 , 'cse', 'male' , 'tamilnadu');
+insert into aug23 values ('kalees' , 198 , 'cse', 'male' , 'tamilnadu');
+insert into aug23 values ('kubendiran' , 198 , 'cse', 'male' , 'tamilnadu'); # not works
+insert into aug23 values ('kubendiran' , 199 , 'cse', 'male' , 'tamilnadu'); # works
+
+ ## --CHECK CONSTRAINT  --
+ alter table aug23 add check (regno >= 190);
+ insert into aug23 values ('amrit' , 189 , 'ece', 'male' , 'tamilnadu'); #not works
+ insert into aug23 values ('amrit' , 191 , 'ece', 'male' , 'tamilnadu'); #works
+ select * from aug23;
+ 
+ ## --TO DROP PRIMARY KEY  --
+alter table aug23 drop primary key; 
+desc aug23;
+
+ ## --TO ADD FOREIGN KEY  --
+create table Category(
+cid int primary key,
+cname varchar(30)
+);
+
+create table Product(
+pid int primary key,
+pname varchar(30),
+cid int not null,
+foreign key(cid) references category (cid) #FOREIGN KEY ADDED
+);
+
+desc category;
+desc product;
+
+insert into category values ( 1,'Tech'),(2,'Non-tech'),(3,'Books'),(4,'Food');
+select * from category;
+insert into product values (1,'Oneplus 11R',1),(2,'Burger',4),(3,'Harry potter BOOKS',3),(4,'Cleaning MOP',2),(5,'Redmi 12 5G',1),(6,'Chicken Biriyani',4),(7,'Mat',2);
+select * from product;
+
+ ## --CHECKING FOREIGN KEY CONSTRAINT --
+insert into product values (8,'Oneplus 12R',5); # Will not work Because there is no ' 5 ' in category...
+insert into product values (8,'Oneplus 12R',1); # will Works ...
+select * from product ;
+
+delete from category where cid = 4; # will not work !
+delete from product where pid = 7; #will works !
+
+update product set cid = 3 where pid=2; #worsk!
+update category set cid = 5 where cid=1; #not work ...

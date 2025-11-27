@@ -1,0 +1,48 @@
+show databases;
+create database Placement;
+use placement;
+
+create table student(
+sname varchar(20),
+regno int,
+course varchar(20),
+gender varchar(5),
+state varchar(10)
+);
+
+desc student;
+select * from student;
+update student set sname='tamizh' where regno=195;
+
+insert into student values (
+'shaun' ,
+126,
+'cse' ,
+'male' ,
+'tamilnadu' ),
+(
+'kalees' ,
+197,
+'cse' ,
+'male' ,
+'tamilnadu' ),
+(
+'kubendiran' ,
+228,
+'cse' ,
+'male' ,
+'tamilnadu' );
+
+create table staff(
+tname varchar(20),
+id int,
+Experience int,
+gender varchar(5),
+branch varchar(10)
+);
+
+desc staff;
+
+alter table student add (id int, blood varchar(2), address varchar(20));
+alter table student drop column city,drop column id;
+select * from student;
