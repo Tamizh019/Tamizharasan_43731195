@@ -4,6 +4,8 @@
 
 > **🔴 LIVE DEMO:** [https://chill-space-springboot.onrender.com](https://chill-space-springboot.onrender.com)
 > _(Note: Hosted on Render Free Tier. It may take 1-2 minutes to wake up from sleep mode, so please be patient!)_
+>
+> **🎥 Project Demo Video:** [Click to Watch on Google Drive](https://drive.google.com/file/d/18M_Wh1dRVIOpbwxsW5WRxCUlQL03Fzp7/view?usp=sharing)
 
 ![Status](https://img.shields.io/badge/Status-Active_Development-success?style=for-the-badge)
 ![Tech](https://img.shields.io/badge/Tech-Spring_Boot_%7C_Docker_%7C_MySQL_%7C_Gemini_AI-blueviolet?style=for-the-badge)
