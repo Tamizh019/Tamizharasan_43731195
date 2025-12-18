@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <!-- Premium Background -->
+    <div class="bg-container">
+        <div class="gradient-mesh"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <div>
+                        <img src="Assets/logo4.svg" alt="Logo" width="55" height="52">
+                    </div>
+                    <div class="brand-text">
+                        <h1>CHILL</h1>
+                        <span>SPACE</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="chat">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span>
+                </button>
+                <button class="nav-item" data-view="files">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Files</span>
+                </button>
+                <a href="admin.html" class="nav-item admin-only" id="adminNavItem"
+                    style="display: none; text-decoration:none;">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Admin Panel</span>
+                </a>
+                <button class="nav-item" data-view="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                <button class="nav-item" id="aiToggleBtn" data-view="ai">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </button>
+            </nav>
+
+
+
+            <div class="sidebar-footer">
+                <div class="user-profile" id="userProfileBtn">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=User" id="sidebarAvatar" alt="Avatar">
+                    <div class="user-info">
+                        <h4 id="sidebarUsername">Loading...</h4>
+                        <span class="user-status online" id="userStatus">Online</span>
+                    </div>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <button class="dropdown-btn" id="profileBtn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </button>
+                    <button class="dropdown-btn">
+                        <i class="fas fa-palette"></i>
+                        <span>Theme</span>
+                    </button>
+                    <button class="dropdown-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Chat Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <div class="channel-info">
+                        <h2>Group Chat</h2>
+                        <p><span class="pulse-dot"></span> <span id="onlineCount">0</span> members online</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn mobile-menu-btn" id="toggleMembersBtn">
+                        <i class="fas fa-users"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Messages Area -->
+            <div class="messages-wrapper">
+                <div class="messages-container" id="chatMessages">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner">
+                        <div class="welcome-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Welcome to <span class="gradient-text">Group Chat</span></h3>
+                        <p>This is the beginning of the legendary conversation</p>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-container" id="typingIndicator" style="display: none;">
+                    <div class="typing-avatar">
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=typing" alt="">
+                    </div>
+                    <div class="typing-bubble">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-section">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="chatInput" placeholder="Type your message..." maxlength="2000"
+                            autocomplete="off" />
+                    </div>
+                    <div class="input-actions">
+                        <button class="send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-footer">
+                    <span class="char-counter"><span id="charCount">0</span> / 2000</span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Files Section (hidden by default) -->
+        <section class="files-section" id="filesSection" style="display: none;">
+            <header class="content-header">
+                <div class="header-left">
+                    <div class="channel-info">
+                        <h2><i class="fas fa-folder-open"></i> Shared Files</h2>
+                        <p><span id="fileCount">0</span> files shared</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="files-content">
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Drag & Drop files here</h3>
+                    <p>or click to browse (max 50MB)</p>
+                    <input type="file" id="fileInput" multiple hidden>
+                    <button class="upload-btn" id="uploadBtn">
+                        <i class="fas fa-plus"></i> Select Files
+                    </button>
+                </div>
+
+                <!-- File List -->
+                <div class="files-list" id="filesList">
+                    <!-- Files will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Section (Full Screen Tab) -->
+        <section class="ai-section" id="aiSection" style="display: none;">
+            <header class="content-header">
+                <div class="header-left">
+                    <div class="channel-info">
+                        <h2><i class="fas fa-robot"></i> SPARKY </h2>
+                        <p>Whenever you need someone to talk to, I’m here.</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="ai-content-wrapper">
+                <div class="ai-messages" id="aiMessages">
+                    <!-- Welcome message -->
+                    <div class="ai-message bot">
+                        <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+                        <div class="ai-msg-content">
+                            <div class="ai-msg-header">
+                                <span class="ai-sender">Sparky <i class="fas fa-bolt"></i></span>
+                                <span class="ai-time" id="welcomeTime"></span>
+                            </div>
+                            <div class="ai-bubble">
+                                Hey there! How's it going? 😊
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-input-wrapper">
+                    <div class="ai-input-area">
+                        <input type="text" id="aiInput" placeholder="Ask Anything..." maxlength="1000">
+                        <button id="aiSendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="ai-input-footer">
+                        <span class="ai-char-count"><span id="aiCharCount">0</span>/1000</span>
+                        <span class="ai-powered">Powered by <strong>TAMIZH</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-section" id="settingsSection" style="display: none;">
+            <header class="content-header">
+                <div class="header-left">
+                    <div class="channel-info">
+                        <h2><i class="fas fa-cog"></i> Settings</h2>
+                        <p>Customize your experience</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="settings-content">
+                <div class="settings-grid">
+                    <!-- Appearance Settings -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-palette"></i> Appearance</h3>
+
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Theme</span>
+                                <small>Choose your vibe</small>
+                            </div>
+                            <div class="theme-selector">
+                                <button class="theme-btn active" data-theme="glass">
+                                    <div class="theme-preview glass"></div>
+                                    <span>Glass</span>
+                                </button>
+                                <button class="theme-btn" data-theme="midnight">
+                                    <div class="theme-preview midnight"></div>
+                                    <span>Midnight</span>
+                                </button>
+                                <button class="theme-btn" data-theme="sunset">
+                                    <div class="theme-preview sunset"></div>
+                                    <span>Sunset</span>
+                                </button>
+                                <button class="theme-btn" data-theme="neon">
+                                    <div class="theme-preview neon"></div>
+                                    <span>Neon</span>
+                                </button>
+                                <button class="theme-btn" data-theme="forest">
+                                    <div class="theme-preview forest"></div>
+                                    <span>Forest</span>
+                                </button>
+                                <button class="theme-btn" data-theme="royal">
+                                    <div class="theme-preview royal"></div>
+                                    <span>Royal</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Note:</span>
+                                <small>More customization coming soon!</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Message Sounds</span>
+                                <small>Play a sound on new messages</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="soundToggle" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span>Desktop Notifications</span>
+                                <small>Show popups when app is backgrounded</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="notifyToggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-user-shield"></i> Account</h3>
+
+                        <div class="setting-item vertical">
+                            <div class="setting-label">
+                                <span>Profile Settings</span>
+                                <small>Update your personal information</small>
+                            </div>
+                            <div class="account-actions">
+                                <div class="input-group">
+                                    <label>Display Name</label>
+                                    <div class="input-with-btn">
+                                        <input type="text" id="settingsUsername" placeholder="Your username">
+                                        <button class="icon-btn" id="saveUsernameBtn" title="Save Username"><i
+                                                class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Profile Picture</label>
+                                    <button class="secondary-btn full-width"
+                                        onclick="document.getElementById('settingsAvatarInput').click()">
+                                        <i class="fas fa-camera"></i> Change Photo
+                                    </button>
+                                    <input type="file" id="settingsAvatarInput" hidden accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <button class="danger-btn full-width" id="settingsLogoutBtn">
+                                <i class="fas fa-sign-out-alt"></i> Log Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Sidebar -->
+        <aside class="members-panel" id="membersPanel">
+            <div class="members-header">
+                <h3>Members</h3>
+                <span class="member-badge" id="totalMembers">0</span>
+            </div>
+
+            <div class="members-content">
+                <!-- Online Section -->
+                <div class="members-group">
+                    <div class="group-header">
+                        <i class="fas fa-circle online-dot"></i>
+                        <span>ONLINE</span>
+                        <span class="count" id="onlineCountSidebar">0</span>
+                    </div>
+                    <div class="members-list" id="onlineMembersList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Offline Section -->
+                <div class="members-group">
+                    <div class="group-header">
+                        <i class="fas fa-circle offline-dot"></i>
+                        <span>OFFLINE</span>
+                        <span class="count" id="offlineCount">0</span>
+                    </div>
+                    <div class="members-list" id="offlineMembersList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header">
+                <div class="profile-banner"></div>
+                <div class="profile-avatar-wrapper">
+                    <img src="" alt="" id="modalAvatar" class="profile-avatar">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <h2 id="modalUsername">Username</h2>
+                <p class="modal-role" id="modalRole">Member</p>
+
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-message"></i>
+                        <div class="stat-info">
+                            <span class="stat-value">247</span>
+                            <span class="stat-label">Messages</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar"></i>
+                        <div class="stat-info">
+                            <span class="stat-value">32</span>
+                            <span class="stat-label">Days Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="primary-btn" id="modalActionBtn">
+                    <i class="fas fa-comment"></i>
+                    <span>Send Message</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/ai.js"></script>
+</body>
+
+</html>
