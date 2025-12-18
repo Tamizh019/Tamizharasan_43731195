@@ -12,26 +12,27 @@ Welcome to my placement preparation repository! This repo contains my daily work
 ## 🎯 Topics Covered
 
 ### ✅ Completed
-- **Database Management**: MySQL, SQL Queries, Database Design, Normalization, Joins, DDL/DML Commands
-- **Frontend Development**: HTML, CSS, JavaScript, Bootstrap, DOM Manipulation, Responsive Design
-
-### 🔄 Currently Learning
-- **Core Java**: OOP Concepts, Classes & Objects, Inheritance, Polymorphism, Exception Handling, Collections Framework, Multithreading, File I/O
+- **Database Management**: MySQL, PostgreSQL, SQL Queries, DB Design, Normalization, Joins
+- **Frontend Development**: HTML, CSS, JavaScript, Bootstrap, React.js (Hooks, Router, Axios), DOM Manipulation
+- **Core Java**: OOP Concepts, Collections Framework, Multithreading, Exception Handling, File I/O
 - **Advanced Java**: JDBC, Servlets, JSP
-- **Spring Boot**: Dependency Injection, REST APIs, Spring MVC, Spring Data JPA (Self-learning)
-- **React**: Components, State Management, Hooks, React Router, Axios (Self-learning)
-- **PostgreSQL**: Advanced Database Management (Self-learning)
+- **Spring Boot**: REST APIs, Spring MVC, Spring Data JPA, **Spring Security (JWT)**, **WebSocket (STOMP)**
+- **AI Engineering**: LLM Integration (Gemini), Function Calling (MCP), RAG Implementation
+- **DevOps Basics**: Docker, Git, Maven, Cloud Deployment (Render, Aiven, Railway)
+
+### 📅 Currently Learning / Practice
+- **Data Structures & Algorithms**: Arrays, Linked Lists, Trees, Graphs, Sorting, Searching, Dynamic Programming
+- **Microservices**: Service Discovery, API Gateway
+- **System Design**: Scalability, Load Balancing
 
 ### 📅 Upcoming Topics
-- **Data Structures & Algorithms**: Arrays, Linked Lists, Trees, Graphs, Heaps, Sorting, Searching, Dynamic Programming
-- **Spring Framework**: Spring Core, Spring Security, Microservices
-- **Full Stack Integration**: Spring Boot + React + PostgreSQL CRUD Applications
-- **DevOps Basics**: Git, Maven, Deployment
+- **Cloud Native**: Kubernetes, AWS Basics
+- **Advanced System Design**
 
 ---
 
 **Course**: Java Full Stack Development  
-**Current Focus**: Core Java Fundamentals + Self-learning Modern Stack (Spring Boot, React, PostgreSQL)
+**Current Focus**: Mastering DSA & Building Scalable Full Stack Applications (Capstone Project: ChillSpace)
 
 
 ## 📅 Daily Progress
@@ -47,4 +48,4 @@ Each folder contains date-wise practice work and solutions with proper comments 
 
 ---
 
-⭐ **Status**: Actively Preparing | Last Updated: November 2025
+⭐ **Status**: Actively Preparing | Last Updated: December 18, 2025
